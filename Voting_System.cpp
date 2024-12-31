@@ -80,3 +80,13 @@ public:
         voters[voterId] = true; // Mark voter as having voted
         cout << "Vote cast successfully for " << candidateName << "." << endl;
     }
+
+    void displayResults() const
+    {
+        cout << "\n--- Voting Results ---" << endl;
+        for (const auto &candidate : candidates)
+        {
+            cout << candidate.first << ": " << candidate.second << " votes" << endl;
+        }
+    }
+};
