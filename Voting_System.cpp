@@ -74,3 +74,9 @@ public:
             cout << "Candidate does not exist." << endl;
             return;
         }
+
+        // Record the vote
+        candidates[candidateName]++;
+        voters[voterId] = true; // Mark voter as having voted
+        cout << "Vote cast successfully for " << candidateName << "." << endl;
+    }
