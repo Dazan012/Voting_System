@@ -54,3 +54,23 @@ public:
             cout << "Candidate already exists." << endl;
         }
     }
+
+    void vote(const string &voterId, const string &candidateName)
+    {
+        if (!isVotingOpen)
+        {
+            cout << "Voting is not open!" << endl;
+            return;
+        }
+
+        if (voters.find(voterId) != voters.end())
+        {
+            cout << "You have already voted!" << endl;
+            return;
+        }
+
+        if (candidates.find(candidateName) == candidates.end())
+        {
+            cout << "Candidate does not exist." << endl;
+            return;
+        }
