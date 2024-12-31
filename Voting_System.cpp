@@ -4,23 +4,7 @@
 
 using namespace std;
 
-class Voting_System
-{
-private:
-    /* data */
-public:
-    Voting_System(/* args */);
-    ~Voting_System();
-};
-
-Voting_System::Voting_System(/* args */)
-{
-}
-
-Voting_System::~Voting_System()
-{
-}
-VotingSystem
+class VotingSystem
 {
 private:
     map<string, int> candidates; // Candidate name and their vote count
@@ -90,3 +74,61 @@ public:
         }
     }
 };
+
+int main()
+{
+    VotingSystem votingSystem;
+
+    int choice;
+    string candidateName, voterId;
+
+    while (true)
+    {
+        cout << "\n--- Voting System Menu ---" << endl;
+        cout << "1. Open Voting" << endl;
+        cout << "2. Close Voting" << endl;
+        cout << "3. Register Candidate" << endl;
+        cout << "4. Vote" << endl;
+        cout << "5. Display Results" << endl;
+        cout << "6. Exit" << endl;
+        cout << "Choose an option: ";
+        cin >> choice;
+
+        switch (choice)
+        {
+        case 1:
+            votingSystem.openVoting();
+            break;
+
+        case 2:
+            votingSystem.closeVoting();
+            break;
+
+        case 3:
+            cout << "Enter candidate name: ";
+            cin >> candidateName;
+            votingSystem.registerCandidate(candidateName);
+            break;
+
+        case 4:
+            cout << "Enter your voter ID: ";
+            cin >> voterId;
+            cout << "Enter candidate name to vote for: ";
+            cin >> candidateName;
+            votingSystem.vote(voterId, candidateName);
+            break;
+
+        case 5:
+            votingSystem.displayResults();
+            break;
+
+        case 6:
+            return 0;
+
+        default:
+            cout << "Invalid option. Please try again." << endl;
+        }
+    }
+
+    return 0;
+}
